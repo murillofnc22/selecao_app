@@ -19,7 +19,7 @@ namespace SelecaoApp
 
         private void Fornecedores_Click(object sender, EventArgs e)
         {
-            Form form = VerificaFormAberto("frmFornecedores");
+            Form form = VerificaFormAberto(FormsEnums.frmFornecedores);
             if (form == null)
             {
                 frmFornecedores fornecedores = new frmFornecedores();
@@ -31,7 +31,7 @@ namespace SelecaoApp
 
         private void Produtos_Click(object sender, EventArgs e)
         {
-            Form form = VerificaFormAberto("frmProdutos");
+            Form form = VerificaFormAberto(FormsEnums.frmProdutos);
             if (form == null)
             {
                 frmProdutos produtos = new frmProdutos();
@@ -46,12 +46,12 @@ namespace SelecaoApp
             this.Close();
         }
 
-        private Form VerificaFormAberto(string formName)
+        private Form VerificaFormAberto(FormsEnums formName)
         {
             FormCollection fc = Application.OpenForms;
             foreach (Form frm in fc)
             {
-                if (frm.Name == formName)
+                if (frm.Name == formName.ToString())
                     return frm;
             }
             return null;
