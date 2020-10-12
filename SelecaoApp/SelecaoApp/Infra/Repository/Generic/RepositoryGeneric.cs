@@ -2,6 +2,7 @@
 using SelecaoApp.Domain.Interfaces.Generic;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -21,6 +22,9 @@ namespace SelecaoApp.Infra.Repository
         {
             using (DBEntities data = new DBEntities())
             {
+                var entry = data.Entry(objeto);
+                if (entry.State == EntityState.Detached)
+                    data.Set<T>().Attach(objeto);
                 data.Set<T>().Remove(objeto);
                 data.SaveChanges();
             }

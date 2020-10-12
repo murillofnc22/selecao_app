@@ -51,15 +51,18 @@ namespace SelecaoApp
         }
         private void ExcluiFornecedor()
         {
-            //excluir o fornecedor selecionado aqui.
-            MessageBox.Show("Apaga!");
+            SetModel();
+            using (RepositoryFornecedor db = new RepositoryFornecedor())
+            {
+                db.Delete(model);
+            }
             CarregaFornecedoresCadastrados();
+            Limpar();
         }
-
         private void Novo_Click(object sender, EventArgs e)
         {
+            Limpar();
             SelectTabCadastro();
-            //setar um modelo novo na tela de cadastros
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -67,8 +70,9 @@ namespace SelecaoApp
         }
         private void Limpar()
         {
-            //Limpas os campos dos modelo
-            MessageBox.Show("Cancelou!");
+            txtNome.Text = txtCnpj.Text = txtEndereco.Text = "";
+            model.id = 0;
+            model.ativo = true;
         }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -76,8 +80,20 @@ namespace SelecaoApp
         }
         private void Salvar()
         {
-            //Insere ou atualiza o fornecedor
-            MessageBox.Show("Salvou!");
+            model.nome = txtNome.Text.Trim();
+            model.cnpj = txtCnpj.Text.Trim();
+            model.endereco = txtEndereco.Text.Trim();
+            model.ativo = cbAtivo.Checked;
+
+            using (RepositoryFornecedor db = new RepositoryFornecedor())
+            {
+                if (model.id == 0)
+                    db.Add(model);
+                else
+                    db.Update(model);
+            }
+
+            Limpar();
             CarregaFornecedoresCadastrados();
         }
         private void SetModel()
