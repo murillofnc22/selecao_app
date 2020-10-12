@@ -112,6 +112,7 @@
             this.dgvProdutos.Location = new System.Drawing.Point(29, 54);
             this.dgvProdutos.MultiSelect = false;
             this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
             this.dgvProdutos.Size = new System.Drawing.Size(678, 186);
             this.dgvProdutos.TabIndex = 2;
             this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvProdutos_DoubleClick);

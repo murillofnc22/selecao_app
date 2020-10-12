@@ -17,7 +17,7 @@
         </EntityType>
         <EntityType Name="Produtos">
           <Key>
-            <PropertyRef Name="nome" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="varchar" MaxLength="255" Nullable="false" />
@@ -62,7 +62,7 @@
         </EntityType>
         <EntityType Name="Produtos">
           <Key>
-            <PropertyRef Name="nome" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />

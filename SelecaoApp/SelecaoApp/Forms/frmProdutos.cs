@@ -1,5 +1,6 @@
 ﻿using SelecaoApp.Infra.Repository;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SelecaoApp
@@ -107,10 +108,19 @@ namespace SelecaoApp
                     model = db.GetEntityById(model.id);
 
                     txtNome.Text = model.nome;
-                    cbFornecedor.Text = model.fornecedor.ToString();
+                    cbFornecedor.Text = GetNomeFornecedor(model.fornecedor);
                     dudQuantidade.Text = model.quantidade.ToString();
                 }
             }
         }
+        private string GetNomeFornecedor(long id)
+        {
+            string nome = "";
+            using (DBEntities db = new DBEntities())
+            {
+                nome = db.Fornecedores.Where(x => x.id == id).FirstOrDefault().nome;
+            }
+            return nome;
+        }        
     }
 }

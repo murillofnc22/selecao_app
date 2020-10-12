@@ -223,19 +223,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="SelecaoDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SelecaoDB.Context.cs</LastGenOutput>
       <DependentUpon>SelecaoDB.edmx</DependentUpon>
+      <LastGenOutput>SelecaoDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="SelecaoDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SelecaoDB.edmx</DependentUpon>
       <LastGenOutput>SelecaoDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
