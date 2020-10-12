@@ -31,7 +31,14 @@ namespace SelecaoApp
 
         private void Produtos_Click(object sender, EventArgs e)
         {
-            //abre cadastro de produtos
+            Form form = VerificaFormAberto("frmProdutos");
+            if (form == null)
+            {
+                frmProdutos produtos = new frmProdutos();
+                produtos.Show(this);
+            }
+            else
+                form.Activate();
         }
 
         private void Sair_Click(object sender, EventArgs e)

@@ -273,6 +273,7 @@
             this.Controls.Add(this.tcFornecedor);
             this.Name = "frmFornecedores";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fornecedores";
             this.tcFornecedor.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
