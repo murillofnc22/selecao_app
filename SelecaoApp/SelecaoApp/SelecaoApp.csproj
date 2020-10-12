@@ -128,9 +128,6 @@
     <Compile Include="Domain\Interfaces\Generic\IGeneric.cs" />
     <Compile Include="Domain\Interfaces\IFornecedor.cs" />
     <Compile Include="Domain\Interfaces\IProduto.cs" />
-    <Compile Include="Entities\Base.cs" />
-    <Compile Include="Entities\Fornecedores.cs" />
-    <Compile Include="Entities\Produtos.cs" />
     <Compile Include="FormsEnums.cs" />
     <Compile Include="Forms\frmFornecedores.cs">
       <SubType>Form</SubType>

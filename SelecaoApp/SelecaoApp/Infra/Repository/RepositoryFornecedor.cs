@@ -2,7 +2,7 @@
 
 namespace SelecaoApp.Infra.Repository.Generic
 {
-    public class RepositoryFornecedor : RepositoryGeneric<Entities.Fornecedores>, IFornecedor
+    public class RepositoryFornecedor : RepositoryGeneric<Fornecedores>, IFornecedor
     {
     }
 }

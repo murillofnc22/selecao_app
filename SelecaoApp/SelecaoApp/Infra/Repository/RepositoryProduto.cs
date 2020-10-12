@@ -2,7 +2,7 @@
 
 namespace SelecaoApp.Infra.Repository
 {
-    public class RepositoryProduto : RepositoryGeneric<Entities.Produtos>, IProduto
+    public class RepositoryProduto : RepositoryGeneric<Produtos>, IProduto
     {
     }
 }

@@ -6,7 +6,7 @@ namespace SelecaoApp
 {
     public partial class frmFornecedores : Form
     {
-        private Entities.Fornecedores model = new Entities.Fornecedores();
+        private Fornecedores model = new Fornecedores();
         public frmFornecedores()
         {
             InitializeComponent();
@@ -84,15 +84,15 @@ namespace SelecaoApp
         {
             if (dgvFornecedores.CurrentRow.Index != -1)
             {
-                model.Id = Convert.ToInt64(dgvFornecedores.CurrentRow.Cells["id"].Value);
+                model.id = Convert.ToInt64(dgvFornecedores.CurrentRow.Cells["id"].Value);
                 using (RepositoryFornecedor db = new RepositoryFornecedor())
                 {
-                    model = db.GetEntityById(model.Id);
+                    model = db.GetEntityById(model.id);
 
-                    txtNome.Text = model.Nome;
-                    txtCnpj.Text = model.CNPJ;
-                    txtEndereco.Text = model.Endereco;
-                    cbAtivo.Checked = model.Ativo;
+                    txtNome.Text = model.nome;
+                    txtCnpj.Text = model.cnpj;
+                    txtEndereco.Text = model.endereco;
+                    cbAtivo.Checked = model.ativo;
                 }
             }
         }
