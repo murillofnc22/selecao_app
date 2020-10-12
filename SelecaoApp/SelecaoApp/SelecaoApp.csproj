@@ -47,43 +47,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormsEnums.cs" />
-    <Compile Include="frmFornecedores.cs">
+    <Compile Include="Forms\frmFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFornecedores.Designer.cs">
+    <Compile Include="Forms\frmFornecedores.Designer.cs">
       <DependentUpon>frmFornecedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="Forms\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
+    <Compile Include="Forms\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProdutos.cs">
+    <Compile Include="Forms\frmProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProdutos.Designer.cs">
+    <Compile Include="Forms\frmProdutos.Designer.cs">
       <DependentUpon>frmProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmFornecedores.resx">
+    <EmbeddedResource Include="Forms\frmFornecedores.resx">
       <DependentUpon>frmFornecedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
+    <EmbeddedResource Include="Forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProdutos.resx">
+    <EmbeddedResource Include="Forms\frmProdutos.resx">
       <DependentUpon>frmProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
