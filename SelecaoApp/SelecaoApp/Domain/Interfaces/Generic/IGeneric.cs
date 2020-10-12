@@ -8,5 +8,6 @@ namespace SelecaoApp.Domain.Interfaces.Generic
         void Update(T objeto);
         void Delete(T objeto);
         List<T> List();
+        T GetEntityById(long id);
     }
 }

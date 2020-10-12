@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SelecaoApp.Infra.Repository.Generic;
+using System;
 using System.Windows.Forms;
 
 namespace SelecaoApp
 {
     public partial class frmFornecedores : Form
     {
+        private Entities.Fornecedores model = new Entities.Fornecedores();
         public frmFornecedores()
         {
             InitializeComponent();
@@ -15,8 +17,11 @@ namespace SelecaoApp
         }
         private void CarregaFornecedoresCadastrados()
         {
-            //esse método vai carregar todos os fornecedores do banco para a DataGridView
-            MessageBox.Show("Carregou!");
+            dgvFornecedores.AutoGenerateColumns = false;
+            using (RepositoryFornecedor fornecedor = new RepositoryFornecedor())
+            {
+                dgvFornecedores.DataSource = fornecedor.List();
+            }
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -32,8 +37,8 @@ namespace SelecaoApp
         {
             if (dgvFornecedores.CurrentRow.Index != -1)
             {
+                SetModel();
                 SelectTabCadastro();
-                //setar o modelo do fornecedor na tela de cadastros
             }
         }
         private void SelectTabCadastro()
@@ -74,6 +79,22 @@ namespace SelecaoApp
             //Insere ou atualiza o fornecedor
             MessageBox.Show("Salvou!");
             CarregaFornecedoresCadastrados();
+        }
+        private void SetModel()
+        {
+            if (dgvFornecedores.CurrentRow.Index != -1)
+            {
+                model.Id = Convert.ToInt64(dgvFornecedores.CurrentRow.Cells["id"].Value);
+                using (RepositoryFornecedor db = new RepositoryFornecedor())
+                {
+                    model = db.GetEntityById(model.Id);
+
+                    txtNome.Text = model.Nome;
+                    txtCnpj.Text = model.CNPJ;
+                    txtEndereco.Text = model.Endereco;
+                    cbAtivo.Checked = model.Ativo;
+                }
+            }
         }
     }
 }

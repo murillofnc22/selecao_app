@@ -40,7 +40,15 @@ namespace SelecaoApp.Infra.Repository
             {
                 return data.Set<T>().AsNoTracking().ToList();
             }
-        }        
+        }
+
+        public T GetEntityById(long id)
+        {
+            using (DBEntities data = new DBEntities())
+            {
+                return data.Set<T>().Find(id);
+            }
+        }
 
         #region Disposed
         //Flag: Has dispose already been called?

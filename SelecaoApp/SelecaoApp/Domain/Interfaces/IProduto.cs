@@ -3,7 +3,7 @@ using SelecaoApp.Entities;
 
 namespace SelecaoApp.Domain.Interfaces
 {
-    public interface IProduto : IGeneric<Produtos>
+    public interface IProduto : IGeneric<Entities.Produtos>
     {
     }
 }
