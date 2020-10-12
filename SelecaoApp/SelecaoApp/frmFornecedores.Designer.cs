@@ -38,7 +38,7 @@
             this.cnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpCadastro = new System.Windows.Forms.TabPage();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.btnDelete);
             this.tabPage1.Controls.Add(this.dgvFornecedores);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtPesquisa);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -90,6 +90,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Novo";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Novo_Click);
             // 
             // btnDelete
             // 
@@ -99,6 +100,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgvFornecedores
             // 
@@ -116,6 +118,7 @@
             this.dgvFornecedores.ReadOnly = true;
             this.dgvFornecedores.Size = new System.Drawing.Size(678, 186);
             this.dgvFornecedores.TabIndex = 2;
+            this.dgvFornecedores.DoubleClick += new System.EventHandler(this.dgvFornecedores_DoubleClick);
             // 
             // id
             // 
@@ -154,12 +157,13 @@
             this.ativo.Name = "ativo";
             this.ativo.ReadOnly = true;
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(505, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtPesquisa.Location = new System.Drawing.Point(153, 28);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(505, 20);
+            this.txtPesquisa.TabIndex = 1;
+            this.txtPesquisa.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Pesquisa_PreviewKeyDown);
             // 
             // label1
             // 
@@ -197,6 +201,7 @@
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
@@ -206,6 +211,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cbAtivo
             // 
@@ -275,6 +281,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fornecedores";
+            this.Load += new System.EventHandler(this.frmFornecedores_Load);
             this.tcFornecedor.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -297,7 +304,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cnpj;
         private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ativo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpCadastro;
         private System.Windows.Forms.Button btnSalvar;
