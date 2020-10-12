@@ -16,5 +16,20 @@ namespace SelecaoApp
         {
             InitializeComponent();
         }
+
+        private void Fornecedores_Click(object sender, EventArgs e)
+        {
+            //abre cadastros de fornecedores
+        }
+
+        private void Produtos_Click(object sender, EventArgs e)
+        {
+            //abre cadastro de produtos
+        }
+
+        private void Sair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
