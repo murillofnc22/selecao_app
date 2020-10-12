@@ -36,14 +36,18 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpCadastro = new System.Windows.Forms.TabPage();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dudQuantidade = new System.Windows.Forms.DomainUpDown();
+            this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcProdutos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
@@ -100,6 +104,11 @@
             // 
             this.dgvProdutos.AllowUserToDeleteRows = false;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.nome,
+            this.fornecedor,
+            this.quantidade});
             this.dgvProdutos.Location = new System.Drawing.Point(29, 54);
             this.dgvProdutos.MultiSelect = false;
             this.dgvProdutos.Name = "dgvProdutos";
@@ -126,13 +135,13 @@
             // 
             // tpCadastro
             // 
-            this.tpCadastro.Controls.Add(this.domainUpDown1);
-            this.tpCadastro.Controls.Add(this.comboBox1);
+            this.tpCadastro.Controls.Add(this.dudQuantidade);
+            this.tpCadastro.Controls.Add(this.cbFornecedor);
             this.tpCadastro.Controls.Add(this.btnsalvar);
             this.tpCadastro.Controls.Add(this.btnCancelar);
             this.tpCadastro.Controls.Add(this.label4);
             this.tpCadastro.Controls.Add(this.label3);
-            this.tpCadastro.Controls.Add(this.textBox2);
+            this.tpCadastro.Controls.Add(this.txtNome);
             this.tpCadastro.Controls.Add(this.label2);
             this.tpCadastro.Location = new System.Drawing.Point(4, 22);
             this.tpCadastro.Name = "tpCadastro";
@@ -142,20 +151,20 @@
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
             // 
-            // domainUpDown1
+            // dudQuantidade
             // 
-            this.domainUpDown1.Location = new System.Drawing.Point(110, 108);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(54, 20);
-            this.domainUpDown1.TabIndex = 5;
+            this.dudQuantidade.Location = new System.Drawing.Point(110, 108);
+            this.dudQuantidade.Name = "dudQuantidade";
+            this.dudQuantidade.Size = new System.Drawing.Size(54, 20);
+            this.dudQuantidade.TabIndex = 5;
             // 
-            // comboBox1
+            // cbFornecedor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(110, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(521, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cbFornecedor.FormattingEnabled = true;
+            this.cbFornecedor.Location = new System.Drawing.Point(110, 63);
+            this.cbFornecedor.Name = "cbFornecedor";
+            this.cbFornecedor.Size = new System.Drawing.Size(521, 21);
+            this.cbFornecedor.TabIndex = 4;
             // 
             // btnsalvar
             // 
@@ -195,12 +204,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Fornecedor";
             // 
-            // textBox2
+            // txtNome
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(521, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtNome.Location = new System.Drawing.Point(110, 19);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(521, 20);
+            this.txtNome.TabIndex = 1;
             // 
             // label2
             // 
@@ -210,6 +219,32 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // nome
+            // 
+            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.DataPropertyName = "fornecedor";
+            this.fornecedor.HeaderText = "Fornecedor";
+            this.fornecedor.Name = "fornecedor";
+            // 
+            // quantidade
+            // 
+            this.quantidade.DataPropertyName = "quantidade";
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
             // 
             // frmProdutos
             // 
@@ -241,13 +276,17 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpCadastro;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DomainUpDown dudQuantidade;
+        private System.Windows.Forms.ComboBox cbFornecedor;
         private System.Windows.Forms.Button btnsalvar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
     }
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SelecaoApp.Infra.Repository;
+using System;
 using System.Windows.Forms;
 
 namespace SelecaoApp
 {
     public partial class frmProdutos : Form
     {
+        Produtos model = new Produtos();
         public frmProdutos()
         {
             InitializeComponent();
@@ -15,8 +17,11 @@ namespace SelecaoApp
         }
         private void CarregaProdutosCadastrados()
         {
-            //esse método vai carregar todos os produtos do banco para a DataGridView
-            MessageBox.Show("Carregou!");
+            dgvProdutos.AutoGenerateColumns = false;
+            using (RepositoryProduto produto = new RepositoryProduto())
+            {
+                dgvProdutos.DataSource = produto.List();
+            }
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -32,10 +37,11 @@ namespace SelecaoApp
         {
             if (dgvProdutos.CurrentRow.Index != -1)
             {
+                SetModel();
                 SelectTabCadastro();
-                //setar o modelo do produto na tela de cadastros
             }
-        }
+        }        
+
         private void SelectTabCadastro()
         {
             tcProdutos.SelectedTab = tpCadastro;
@@ -46,14 +52,18 @@ namespace SelecaoApp
         }
         private void ExcluiProduto()
         {
-            //excluir o produto selecionado aqui.
-            MessageBox.Show("Apaga!");
+            SetModel();
+            using (RepositoryProduto db = new RepositoryProduto())
+            {
+                db.Delete(model);
+            }
             CarregaProdutosCadastrados();
+            Limpar();            
         }
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            Limpar();
             SelectTabCadastro();
-            //setar um modelo novo na tela de cadastros
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -61,8 +71,9 @@ namespace SelecaoApp
         }
         private void Limpar()
         {
-            //Limpas os campos dos modelo
-            MessageBox.Show("Cancelou!");
+            txtNome.Text = cbFornecedor.Text = "";
+            dudQuantidade.Text = "0";
+            model.id = 0;            
         }
         private void btnsalvar_Click(object sender, EventArgs e)
         {
@@ -70,9 +81,36 @@ namespace SelecaoApp
         }
         private void Salvar()
         {
-            //Insere ou atualiza o fornecedor
-            MessageBox.Show("Salvou!");
+            model.nome = txtNome.Text.Trim();
+            model.fornecedor = Convert.ToInt64(cbFornecedor.Text.Trim());
+            model.quantidade = Convert.ToInt32(dudQuantidade.Text.Trim());
+
+            using (RepositoryProduto db = new RepositoryProduto())
+            {
+                if (model.id == 0)
+                    db.Add(model);
+                else
+                    db.Update(model);
+            }
+
+            Limpar();
             CarregaProdutosCadastrados();
+        }
+        private void SetModel()
+        {
+            if (dgvProdutos.CurrentRow.Index != -1)
+            {
+                model.id = Convert.ToInt64(dgvProdutos.CurrentRow.Cells["id"].Value);
+
+                using (RepositoryProduto db = new RepositoryProduto())
+                {
+                    model = db.GetEntityById(model.id);
+
+                    txtNome.Text = model.nome;
+                    cbFornecedor.Text = model.fornecedor.ToString();
+                    dudQuantidade.Text = model.quantidade.ToString();
+                }
+            }
         }
     }
 }
