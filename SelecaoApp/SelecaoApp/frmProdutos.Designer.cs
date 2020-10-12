@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcProdutos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpCadastro = new System.Windows.Forms.TabPage();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnsalvar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.tcProdutos.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            this.tpCadastro.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tcProdutos
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(749, 313);
-            this.tabControl1.TabIndex = 2;
+            this.tcProdutos.Controls.Add(this.tabPage1);
+            this.tcProdutos.Controls.Add(this.tpCadastro);
+            this.tcProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcProdutos.Location = new System.Drawing.Point(0, 0);
+            this.tcProdutos.Name = "tcProdutos";
+            this.tcProdutos.SelectedIndex = 0;
+            this.tcProdutos.Size = new System.Drawing.Size(749, 313);
+            this.tcProdutos.TabIndex = 2;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.btnNovo);
+            this.tabPage1.Controls.Add(this.btnExcluir);
+            this.tabPage1.Controls.Add(this.dgvProdutos);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -76,31 +76,36 @@
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnNovo
             // 
-            this.button2.Location = new System.Drawing.Point(632, 246);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Novo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnNovo.Location = new System.Drawing.Point(632, 246);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 3;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // button1
+            // btnExcluir
             // 
-            this.button1.Location = new System.Drawing.Point(29, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExcluir.Location = new System.Drawing.Point(29, 246);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 3;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // dataGridView1
+            // dgvProdutos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(678, 186);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Location = new System.Drawing.Point(29, 54);
+            this.dgvProdutos.MultiSelect = false;
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.Size = new System.Drawing.Size(678, 186);
+            this.dgvProdutos.TabIndex = 2;
+            this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvProdutos_DoubleClick);
             // 
             // textBox1
             // 
@@ -108,6 +113,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(505, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Pesquisa_PreviewKeyDown);
             // 
             // label1
             // 
@@ -118,23 +124,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Pesquisar";
             // 
-            // tabPage2
+            // tpCadastro
             // 
-            this.tabPage2.Controls.Add(this.domainUpDown1);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(741, 287);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cadastro";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpCadastro.Controls.Add(this.domainUpDown1);
+            this.tpCadastro.Controls.Add(this.comboBox1);
+            this.tpCadastro.Controls.Add(this.btnsalvar);
+            this.tpCadastro.Controls.Add(this.btnCancelar);
+            this.tpCadastro.Controls.Add(this.label4);
+            this.tpCadastro.Controls.Add(this.label3);
+            this.tpCadastro.Controls.Add(this.textBox2);
+            this.tpCadastro.Controls.Add(this.label2);
+            this.tpCadastro.Location = new System.Drawing.Point(4, 22);
+            this.tpCadastro.Name = "tpCadastro";
+            this.tpCadastro.Padding = new System.Windows.Forms.Padding(3);
+            this.tpCadastro.Size = new System.Drawing.Size(741, 287);
+            this.tpCadastro.TabIndex = 1;
+            this.tpCadastro.Text = "Cadastro";
+            this.tpCadastro.UseVisualStyleBackColor = true;
             // 
             // domainUpDown1
             // 
@@ -151,23 +157,25 @@
             this.comboBox1.Size = new System.Drawing.Size(521, 21);
             this.comboBox1.TabIndex = 4;
             // 
-            // button4
+            // btnsalvar
             // 
-            this.button4.Location = new System.Drawing.Point(556, 179);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Salvar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnsalvar.Location = new System.Drawing.Point(556, 179);
+            this.btnsalvar.Name = "btnsalvar";
+            this.btnsalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnsalvar.TabIndex = 3;
+            this.btnsalvar.Text = "Salvar";
+            this.btnsalvar.UseVisualStyleBackColor = true;
+            this.btnsalvar.Click += new System.EventHandler(this.btnsalvar_Click);
             // 
-            // button3
+            // btnCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(52, 179);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(52, 179);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label4
             // 
@@ -208,34 +216,35 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 313);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcProdutos);
             this.Name = "frmProdutos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Produtos";
-            this.tabControl1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmProdutos_Load);
+            this.tcProdutos.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            this.tpCadastro.ResumeLayout(false);
+            this.tpCadastro.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcProdutos;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpCadastro;
         private System.Windows.Forms.DomainUpDown domainUpDown1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnsalvar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
