@@ -16,6 +16,7 @@ namespace SelecaoApp
         private void frmProdutos_Load(object sender, EventArgs e)
         {
             CarregaProdutosCadastrados();
+            SetFornecedores();
         }
         private void CarregaProdutosCadastrados()
         {
@@ -78,7 +79,7 @@ namespace SelecaoApp
         private void Salvar()
         {
             model.nome = txtNome.Text.Trim();
-            model.fornecedor = Convert.ToInt64(cbFornecedor.Text.Trim());
+            model.fornecedor = GetIdFornecedor(cbFornecedor.Text.Trim());
             model.quantidade = Convert.ToInt32(dudQuantidade.Text.Trim());
 
             if (model.id == 0)
@@ -110,6 +111,22 @@ namespace SelecaoApp
                 nome = db.Fornecedores.Where(x => x.id == id).FirstOrDefault().nome;
             }
             return nome;
-        }        
+        }
+        private long GetIdFornecedor(string nome)
+        {
+            long id = 0;
+            using (DBEntities db = new DBEntities())
+            {
+                id = db.Fornecedores.Where(x => x.nome == nome).FirstOrDefault().id;
+            }
+            return id;
+        }
+        private void SetFornecedores()
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                cbFornecedor.DataSource = db.Fornecedores.ToList().Select(s => s.nome).ToList();
+            }            
+        }
     }
 }
