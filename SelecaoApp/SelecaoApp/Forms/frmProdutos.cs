@@ -69,7 +69,7 @@ namespace SelecaoApp
         private void Limpar()
         {
             txtNome.Text = cbFornecedor.Text = "";
-            dudQuantidade.Text = "0";
+            numericQuantidade.Text = "0";
             model.id = 0;            
         }
         private void btnsalvar_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace SelecaoApp
         {
             model.nome = txtNome.Text.Trim();
             model.fornecedor = GetIdFornecedor(cbFornecedor.Text.Trim());
-            model.quantidade = Convert.ToInt32(dudQuantidade.Text.Trim());
+            model.quantidade = Convert.ToInt32(numericQuantidade.Text.Trim());
 
             if (model.id == 0)
                 db.Add(model);
@@ -100,7 +100,7 @@ namespace SelecaoApp
 
                 txtNome.Text = model.nome;
                 cbFornecedor.Text = GetNomeFornecedor(model.fornecedor);
-                dudQuantidade.Text = model.quantidade.ToString();
+                numericQuantidade.Text = model.quantidade.ToString();
             }
         }
         private string GetNomeFornecedor(long id)

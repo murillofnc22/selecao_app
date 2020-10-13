@@ -33,10 +33,13 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpCadastro = new System.Windows.Forms.TabPage();
-            this.dudQuantidade = new System.Windows.Forms.DomainUpDown();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -44,14 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericQuantidade = new System.Windows.Forms.NumericUpDown();
             this.tcProdutos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.tpCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // tcProdutos
@@ -117,6 +118,36 @@
             this.dgvProdutos.TabIndex = 2;
             this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvProdutos_DoubleClick);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // nome
+            // 
+            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.DataPropertyName = "fornecedor";
+            this.fornecedor.HeaderText = "Fornecedor";
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.ReadOnly = true;
+            // 
+            // quantidade
+            // 
+            this.quantidade.DataPropertyName = "quantidade";
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(153, 28);
@@ -136,7 +167,7 @@
             // 
             // tpCadastro
             // 
-            this.tpCadastro.Controls.Add(this.dudQuantidade);
+            this.tpCadastro.Controls.Add(this.numericQuantidade);
             this.tpCadastro.Controls.Add(this.cbFornecedor);
             this.tpCadastro.Controls.Add(this.btnsalvar);
             this.tpCadastro.Controls.Add(this.btnCancelar);
@@ -151,13 +182,6 @@
             this.tpCadastro.TabIndex = 1;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
-            // 
-            // dudQuantidade
-            // 
-            this.dudQuantidade.Location = new System.Drawing.Point(110, 108);
-            this.dudQuantidade.Name = "dudQuantidade";
-            this.dudQuantidade.Size = new System.Drawing.Size(54, 20);
-            this.dudQuantidade.TabIndex = 5;
             // 
             // cbFornecedor
             // 
@@ -221,31 +245,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome";
             // 
-            // id
+            // numericQuantidade
             // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // nome
-            // 
-            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            // 
-            // fornecedor
-            // 
-            this.fornecedor.DataPropertyName = "fornecedor";
-            this.fornecedor.HeaderText = "Fornecedor";
-            this.fornecedor.Name = "fornecedor";
-            // 
-            // quantidade
-            // 
-            this.quantidade.DataPropertyName = "quantidade";
-            this.quantidade.HeaderText = "Quantidade";
-            this.quantidade.Name = "quantidade";
+            this.numericQuantidade.Location = new System.Drawing.Point(110, 108);
+            this.numericQuantidade.Name = "numericQuantidade";
+            this.numericQuantidade.Size = new System.Drawing.Size(120, 20);
+            this.numericQuantidade.TabIndex = 6;
             // 
             // frmProdutos
             // 
@@ -263,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.tpCadastro.ResumeLayout(false);
             this.tpCadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuantidade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,7 +283,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpCadastro;
-        private System.Windows.Forms.DomainUpDown dudQuantidade;
         private System.Windows.Forms.ComboBox cbFornecedor;
         private System.Windows.Forms.Button btnsalvar;
         private System.Windows.Forms.Button btnCancelar;
@@ -289,5 +294,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.NumericUpDown numericQuantidade;
     }
 }
