@@ -1,8 +1,8 @@
-﻿using SelecaoApp.Domain.Interfaces;
+﻿using SelecaoApp.Domain.Interfaces.Generic;
 
 namespace SelecaoApp.Infra.Repository.Generic
 {
-    public class RepositoryFornecedor : RepositoryGeneric<Fornecedores>, IFornecedor
+    public class RepositoryFornecedor : RepositoryGeneric<Fornecedores>, IGeneric<Fornecedores>
     {
     }
 }

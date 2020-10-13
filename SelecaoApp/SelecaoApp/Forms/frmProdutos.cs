@@ -8,6 +8,7 @@ namespace SelecaoApp
     public partial class frmProdutos : Form
     {
         Produtos model = new Produtos();
+        private RepositoryProduto db = new RepositoryProduto();
         public frmProdutos()
         {
             InitializeComponent();
@@ -19,10 +20,7 @@ namespace SelecaoApp
         private void CarregaProdutosCadastrados()
         {
             dgvProdutos.AutoGenerateColumns = false;
-            using (RepositoryProduto produto = new RepositoryProduto())
-            {
-                dgvProdutos.DataSource = produto.List();
-            }
+            dgvProdutos.DataSource = db.List();
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -54,10 +52,7 @@ namespace SelecaoApp
         private void ExcluiProduto()
         {
             SetModel();
-            using (RepositoryProduto db = new RepositoryProduto())
-            {
-                db.Delete(model);
-            }
+            db.Delete(model);
             CarregaProdutosCadastrados();
             Limpar();            
         }
@@ -86,13 +81,10 @@ namespace SelecaoApp
             model.fornecedor = Convert.ToInt64(cbFornecedor.Text.Trim());
             model.quantidade = Convert.ToInt32(dudQuantidade.Text.Trim());
 
-            using (RepositoryProduto db = new RepositoryProduto())
-            {
-                if (model.id == 0)
-                    db.Add(model);
-                else
-                    db.Update(model);
-            }
+            if (model.id == 0)
+                db.Add(model);
+            else
+                db.Update(model);
 
             Limpar();
             CarregaProdutosCadastrados();
@@ -103,14 +95,11 @@ namespace SelecaoApp
             {
                 model.id = Convert.ToInt64(dgvProdutos.CurrentRow.Cells["id"].Value);
 
-                using (RepositoryProduto db = new RepositoryProduto())
-                {
-                    model = db.GetEntityById(model.id);
+                model = db.GetEntityById(model.id);
 
-                    txtNome.Text = model.nome;
-                    cbFornecedor.Text = GetNomeFornecedor(model.fornecedor);
-                    dudQuantidade.Text = model.quantidade.ToString();
-                }
+                txtNome.Text = model.nome;
+                cbFornecedor.Text = GetNomeFornecedor(model.fornecedor);
+                dudQuantidade.Text = model.quantidade.ToString();
             }
         }
         private string GetNomeFornecedor(long id)

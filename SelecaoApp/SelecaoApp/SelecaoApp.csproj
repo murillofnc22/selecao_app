@@ -125,9 +125,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Interfaces\Generic\IGeneric.cs" />
-    <Compile Include="Domain\Interfaces\IFornecedor.cs" />
-    <Compile Include="Domain\Interfaces\IProduto.cs" />
+    <Compile Include="Domain\Interfaces\IGeneric.cs" />
     <Compile Include="FormsEnums.cs" />
     <Compile Include="Forms\frmFornecedores.cs">
       <SubType>Form</SubType>

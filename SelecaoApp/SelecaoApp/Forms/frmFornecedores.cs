@@ -7,6 +7,7 @@ namespace SelecaoApp
     public partial class frmFornecedores : Form
     {
         private Fornecedores model = new Fornecedores();
+        private RepositoryFornecedor db = new RepositoryFornecedor();
         public frmFornecedores()
         {
             InitializeComponent();
@@ -18,10 +19,7 @@ namespace SelecaoApp
         private void CarregaFornecedoresCadastrados()
         {
             dgvFornecedores.AutoGenerateColumns = false;
-            using (RepositoryFornecedor fornecedor = new RepositoryFornecedor())
-            {
-                dgvFornecedores.DataSource = fornecedor.List();
-            }
+            dgvFornecedores.DataSource = db.List();
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -52,10 +50,7 @@ namespace SelecaoApp
         private void ExcluiFornecedor()
         {
             SetModel();
-            using (RepositoryFornecedor db = new RepositoryFornecedor())
-            {
-                db.Delete(model);
-            }
+            db.Delete(model);
             CarregaFornecedoresCadastrados();
             Limpar();
         }
@@ -85,13 +80,10 @@ namespace SelecaoApp
             model.endereco = txtEndereco.Text.Trim();
             model.ativo = cbAtivo.Checked;
 
-            using (RepositoryFornecedor db = new RepositoryFornecedor())
-            {
-                if (model.id == 0)
-                    db.Add(model);
-                else
-                    db.Update(model);
-            }
+            if (model.id == 0)
+                db.Add(model);
+            else
+                db.Update(model);
 
             Limpar();
             CarregaFornecedoresCadastrados();
@@ -101,15 +93,12 @@ namespace SelecaoApp
             if (dgvFornecedores.CurrentRow.Index != -1)
             {
                 model.id = Convert.ToInt64(dgvFornecedores.CurrentRow.Cells["id"].Value);
-                using (RepositoryFornecedor db = new RepositoryFornecedor())
-                {
-                    model = db.GetEntityById(model.id);
+                model = db.GetEntityById(model.id);
 
-                    txtNome.Text = model.nome;
-                    txtCnpj.Text = model.cnpj;
-                    txtEndereco.Text = model.endereco;
-                    cbAtivo.Checked = model.ativo;
-                }
+                txtNome.Text = model.nome;
+                txtCnpj.Text = model.cnpj;
+                txtEndereco.Text = model.endereco;
+                cbAtivo.Checked = model.ativo;
             }
         }
     }
