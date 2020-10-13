@@ -64,14 +64,14 @@
             // tsFornecedores
             // 
             this.tsFornecedores.Name = "tsFornecedores";
-            this.tsFornecedores.Size = new System.Drawing.Size(145, 22);
+            this.tsFornecedores.Size = new System.Drawing.Size(182, 26);
             this.tsFornecedores.Text = "Fornecedores";
             this.tsFornecedores.Click += new System.EventHandler(this.Fornecedores_Click);
             // 
             // tsProdutos
             // 
             this.tsProdutos.Name = "tsProdutos";
-            this.tsProdutos.Size = new System.Drawing.Size(145, 22);
+            this.tsProdutos.Size = new System.Drawing.Size(182, 26);
             this.tsProdutos.Text = "Produtos";
             this.tsProdutos.Click += new System.EventHandler(this.Produtos_Click);
             // 
@@ -99,9 +99,8 @@
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.Location = new System.Drawing.Point(3, 2);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(57, 20);
+            this.lblUser.Size = new System.Drawing.Size(0, 20);
             this.lblUser.TabIndex = 0;
-            this.lblUser.Text = "label1";
             // 
             // frmPrincipal
             // 
