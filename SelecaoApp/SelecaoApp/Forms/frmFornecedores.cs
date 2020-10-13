@@ -18,8 +18,7 @@ namespace SelecaoApp
         }
         private void CarregaFornecedoresCadastrados()
         {
-            dgvFornecedores.AutoGenerateColumns = false;
-            dgvFornecedores.DataSource = db.List();
+            dgvFornecedores.DataSource = db.GetAllFornecedoresADO();
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -28,8 +27,7 @@ namespace SelecaoApp
         }
         private void ExecutaPesquisa()
         {
-            //esse método fará a pesquisa no banco de dados.
-            MessageBox.Show("Pesquisa!");
+            dgvFornecedores.DataSource = db.BuscaFornecedoresADO(txtPesquisa.Text);
         }
         private void dgvFornecedores_DoubleClick(object sender, EventArgs e)
         {
