@@ -30,16 +30,13 @@
         {
             this.tcProdutos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBusca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpCadastro = new System.Windows.Forms.TabPage();
+            this.numericQuantidade = new System.Windows.Forms.NumericUpDown();
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -47,7 +44,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcProdutos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
@@ -68,10 +68,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dgvProdutos);
             this.tabPage1.Controls.Add(this.btnNovo);
             this.tabPage1.Controls.Add(this.btnExcluir);
-            this.tabPage1.Controls.Add(this.dgvProdutos);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtBusca);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -80,6 +80,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consulta";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dgvProdutos
+            // 
+            this.dgvProdutos.AllowUserToAddRows = false;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.nome,
+            this.Fornecedor,
+            this.quantidade});
+            this.dgvProdutos.Location = new System.Drawing.Point(8, 54);
+            this.dgvProdutos.MultiSelect = false;
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
+            this.dgvProdutos.Size = new System.Drawing.Size(725, 186);
+            this.dgvProdutos.TabIndex = 4;
+            this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvProdutos_DoubleClick);
             // 
             // btnNovo
             // 
@@ -101,60 +119,13 @@
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // dgvProdutos
+            // txtBusca
             // 
-            this.dgvProdutos.AllowUserToDeleteRows = false;
-            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.nome,
-            this.fornecedor,
-            this.quantidade});
-            this.dgvProdutos.Location = new System.Drawing.Point(29, 54);
-            this.dgvProdutos.MultiSelect = false;
-            this.dgvProdutos.Name = "dgvProdutos";
-            this.dgvProdutos.ReadOnly = true;
-            this.dgvProdutos.Size = new System.Drawing.Size(678, 186);
-            this.dgvProdutos.TabIndex = 2;
-            this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvProdutos_DoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // nome
-            // 
-            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            // 
-            // fornecedor
-            // 
-            this.fornecedor.DataPropertyName = "fornecedor";
-            this.fornecedor.HeaderText = "Fornecedor";
-            this.fornecedor.Name = "fornecedor";
-            this.fornecedor.ReadOnly = true;
-            // 
-            // quantidade
-            // 
-            this.quantidade.DataPropertyName = "quantidade";
-            this.quantidade.HeaderText = "Quantidade";
-            this.quantidade.Name = "quantidade";
-            this.quantidade.ReadOnly = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(153, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(505, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Pesquisa_PreviewKeyDown);
+            this.txtBusca.Location = new System.Drawing.Point(153, 28);
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(505, 20);
+            this.txtBusca.TabIndex = 1;
+            this.txtBusca.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Pesquisa_PreviewKeyDown);
             // 
             // label1
             // 
@@ -182,6 +153,13 @@
             this.tpCadastro.TabIndex = 1;
             this.tpCadastro.Text = "Cadastro";
             this.tpCadastro.UseVisualStyleBackColor = true;
+            // 
+            // numericQuantidade
+            // 
+            this.numericQuantidade.Location = new System.Drawing.Point(110, 108);
+            this.numericQuantidade.Name = "numericQuantidade";
+            this.numericQuantidade.Size = new System.Drawing.Size(120, 20);
+            this.numericQuantidade.TabIndex = 6;
             // 
             // cbFornecedor
             // 
@@ -245,12 +223,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nome";
             // 
-            // numericQuantidade
+            // id
             // 
-            this.numericQuantidade.Location = new System.Drawing.Point(110, 108);
-            this.numericQuantidade.Name = "numericQuantidade";
-            this.numericQuantidade.Size = new System.Drawing.Size(120, 20);
-            this.numericQuantidade.TabIndex = 6;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // nome
+            // 
+            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            // 
+            // Fornecedor
+            // 
+            this.Fornecedor.DataPropertyName = "fornecedor";
+            this.Fornecedor.HeaderText = "Fornecedor";
+            this.Fornecedor.Name = "Fornecedor";
+            this.Fornecedor.ReadOnly = true;
+            // 
+            // quantidade
+            // 
+            this.quantidade.DataPropertyName = "quantidade";
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
             // 
             // frmProdutos
             // 
@@ -279,8 +280,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.DataGridView dgvProdutos;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tpCadastro;
         private System.Windows.Forms.ComboBox cbFornecedor;
@@ -290,10 +290,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numericQuantidade;
+        private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
-        private System.Windows.Forms.NumericUpDown numericQuantidade;
     }
 }

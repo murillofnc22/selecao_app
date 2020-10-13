@@ -1,5 +1,6 @@
 ﻿using SelecaoApp.Infra.Repository;
 using System;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -20,8 +21,7 @@ namespace SelecaoApp
         }
         private void CarregaProdutosCadastrados()
         {
-            dgvProdutos.AutoGenerateColumns = false;
-            dgvProdutos.DataSource = db.List();
+            dgvProdutos.DataSource = db.GetAllProdutosADO();
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -31,7 +31,7 @@ namespace SelecaoApp
         private void ExecutaPesquisa()
         {
             //esse método fará a pesquisa no banco de dados.
-            MessageBox.Show("Pesquisa!");
+            dgvProdutos.DataSource = db.BuscaProdutosADO(txtBusca.Text);
         }
         private void dgvProdutos_DoubleClick(object sender, EventArgs e)
         {
