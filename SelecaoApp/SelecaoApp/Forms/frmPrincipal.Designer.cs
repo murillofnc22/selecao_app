@@ -33,7 +33,10 @@
             this.tsFornecedores = new System.Windows.Forms.ToolStripMenuItem();
             this.tsProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblUser = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -44,7 +47,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 29);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -53,8 +56,9 @@
             this.toolStripCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsFornecedores,
             this.tsProdutos});
+            this.toolStripCadastros.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.toolStripCadastros.Name = "toolStripCadastros";
-            this.toolStripCadastros.Size = new System.Drawing.Size(71, 20);
+            this.toolStripCadastros.Size = new System.Drawing.Size(96, 25);
             this.toolStripCadastros.Text = "Cadastros";
             // 
             // tsFornecedores
@@ -73,16 +77,38 @@
             // 
             // tsSair
             // 
+            this.tsSair.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.tsSair.Name = "tsSair";
-            this.tsSair.Size = new System.Drawing.Size(38, 20);
+            this.tsSair.Size = new System.Drawing.Size(51, 25);
             this.tsSair.Text = "Sair";
             this.tsSair.Click += new System.EventHandler(this.Sair_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.lblUser);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 426);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 24);
+            this.panel1.TabIndex = 2;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(3, 2);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(57, 20);
+            this.lblUser.TabIndex = 0;
+            this.lblUser.Text = "label1";
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -90,6 +116,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +130,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsFornecedores;
         private System.Windows.Forms.ToolStripMenuItem tsProdutos;
         private System.Windows.Forms.ToolStripMenuItem tsSair;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblUser;
     }
 }

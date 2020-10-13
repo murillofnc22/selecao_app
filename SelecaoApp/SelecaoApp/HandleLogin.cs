@@ -23,7 +23,7 @@ namespace SelecaoApp
         public bool FazLogin()
         {
             VerificaUsuarios();
-            if (true)//LoginValido())
+            if (LoginValido())
                 return true;
             else
                 return false;

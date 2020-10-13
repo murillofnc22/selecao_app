@@ -12,9 +12,11 @@ namespace SelecaoApp
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+        public frmPrincipal(string usuario)
         {
             InitializeComponent();
+            
+            lblUser.Text = usuario;
         }
 
         private void Fornecedores_Click(object sender, EventArgs e)

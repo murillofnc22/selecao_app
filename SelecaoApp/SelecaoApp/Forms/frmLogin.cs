@@ -26,7 +26,7 @@ namespace SelecaoApp
             if (login.FazLogin())
             {
                 this.Hide();
-                frmPrincipal principal = new frmPrincipal();
+                frmPrincipal principal = new frmPrincipal(txtUsuario.Text);
                 principal.ShowDialog();
                 this.Close();
             }
