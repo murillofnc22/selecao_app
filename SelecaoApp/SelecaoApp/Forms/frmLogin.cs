@@ -22,14 +22,18 @@ namespace SelecaoApp
 
         private void LogaNoSistema()
         {
-            Login login = new Login(txtUsuario.Text, txtSenha.Text);
-            if (login.HandleLogin())
+            HandleLogin login = new HandleLogin(txtUsuario.Text, txtSenha.Text);
+            if (login.FazLogin())
             {
                 this.Hide();
                 frmPrincipal principal = new frmPrincipal();
                 principal.ShowDialog();
+                this.Close();
             }
-            this.Close();
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválido!");
+            }            
         }
     }
 }

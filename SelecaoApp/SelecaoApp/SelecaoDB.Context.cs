@@ -26,6 +26,7 @@ namespace SelecaoApp
         }
     
         public virtual DbSet<Fornecedores> Fornecedores { get; set; }
+        public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<Produtos> Produtos { get; set; }
     }
 }

@@ -154,10 +154,14 @@
     <Compile Include="Fornecedores.cs">
       <DependentUpon>SelecaoDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="HandleLogin.cs" />
     <Compile Include="Infra\Repository\RepositoryFornecedor.cs" />
     <Compile Include="Infra\Repository\Generic\RepositoryGeneric.cs" />
+    <Compile Include="Infra\Repository\RepositoryLogin.cs" />
     <Compile Include="Infra\Repository\RepositoryProduto.cs" />
-    <Compile Include="Login.cs" />
+    <Compile Include="Login.cs">
+      <DependentUpon>SelecaoDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Produtos.cs">
       <DependentUpon>SelecaoDB.tt</DependentUpon>
     </Compile>

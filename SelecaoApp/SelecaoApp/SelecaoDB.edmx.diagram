@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="15e6f03692934c2a8ed8a7ed0bacd31d" Name="Diagram1">
+      <Diagram DiagramId="a3d68d5def8f4228b5e2ef574465b200" Name="Diagram1">
         <EntityTypeShape EntityType="SelecaoDBModel.Fornecedores" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SelecaoDBModel.Login" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SelecaoDBModel.Produtos" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="SelecaoDBModel.FK_Fornecedores_Produtos" ManuallyRouted="false" />
       </Diagram>

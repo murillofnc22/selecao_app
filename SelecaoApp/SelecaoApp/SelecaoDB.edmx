@@ -15,6 +15,14 @@
           <Property Name="endereco" Type="varchar" MaxLength="255" />
           <Property Name="ativo" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usrpass" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
         <EntityType Name="Produtos">
           <Key>
             <PropertyRef Name="id" />
@@ -38,6 +46,7 @@
         </Association>
         <EntityContainer Name="SelecaoDBModelStoreContainer">
           <EntitySet Name="Fornecedores" EntityType="Self.Fornecedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Fornecedores_Produtos" Association="Self.FK_Fornecedores_Produtos">
             <End Role="Fornecedores" EntitySet="Fornecedores" />
@@ -59,6 +68,14 @@
           <Property Name="endereco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="ativo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Produtos" Relationship="Self.FK_Fornecedores_Produtos" FromRole="Fornecedores" ToRole="Produtos" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usrpass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Produtos">
           <Key>
@@ -84,6 +101,7 @@
         </Association>
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Fornecedores" EntityType="Self.Fornecedores" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="Produtos" EntityType="Self.Produtos" />
           <AssociationSet Name="FK_Fornecedores_Produtos" Association="Self.FK_Fornecedores_Produtos">
             <End Role="Fornecedores" EntitySet="Fornecedores" />
@@ -104,6 +122,15 @@
                 <ScalarProperty Name="cnpj" ColumnName="cnpj" />
                 <ScalarProperty Name="endereco" ColumnName="endereco" />
                 <ScalarProperty Name="ativo" ColumnName="ativo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="SelecaoDBModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="usrpass" ColumnName="usrpass" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
