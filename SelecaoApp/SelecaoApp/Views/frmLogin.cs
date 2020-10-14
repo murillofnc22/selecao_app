@@ -21,6 +21,8 @@ namespace SelecaoApp
             _loginRepository = loginRepository;
             _fornecedoresRepository = fornecedoresRepository;
             _produtosRepository = produtosRepository;
+
+            txtUsuario.Select();
         }
 
         private void Sair_Click(object sender, EventArgs e)

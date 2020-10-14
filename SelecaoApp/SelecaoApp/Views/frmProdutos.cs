@@ -18,6 +18,7 @@ namespace SelecaoApp
             InitializeComponent();
             _produtosRepository = produtosRepository;
             _fornecedoresRepository = fornecedoresRepository;
+            txtBusca.Select();
         }
         private void frmProdutos_Load(object sender, EventArgs e)
         {
@@ -49,6 +50,7 @@ namespace SelecaoApp
         private void SelectTabCadastro()
         {
             tcProdutos.SelectedTab = tpCadastro;
+            txtNome.Select();
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {

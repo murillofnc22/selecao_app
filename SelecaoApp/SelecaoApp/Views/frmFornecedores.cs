@@ -14,6 +14,7 @@ namespace SelecaoApp
         {
             InitializeComponent();
             _fornecedoresRepository = fornecedoresRepository;
+            txtPesquisa.Select();
         }
 
         private void frmFornecedores_Load(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace SelecaoApp
         private void SelectTabCadastro()
         {
             tcFornecedor.SelectedTab = tpCadastro;
+            txtNome.Select();
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
