@@ -1,5 +1,4 @@
 ﻿using SelecaoApp.Domain.Models.ProdutosModels;
-using SelecaoApp.Infrastructure.Repository;
 using SelecaoApp.Services.Services.FornecedoresServices;
 using SelecaoApp.Services.Services.ProdutosServices;
 using System;

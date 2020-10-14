@@ -1,5 +1,4 @@
 ﻿using SelecaoApp.Domain.Models.FornecedoresModels;
-using SelecaoApp.Infrastructure.Repository.Generic;
 using SelecaoApp.Services.Services.FornecedoresServices;
 using System;
 using System.Windows.Forms;

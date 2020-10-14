@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using SelecaoApp.Infra;
-using SelecaoApp.Infra.Configuration;
+﻿using Microsoft.Extensions.DependencyInjection;
 using SelecaoApp.Infra.DataAccess.Repositories.Specific.FornecedoresInfra;
 using SelecaoApp.Infra.DataAccess.Repositories.Specific.Generic;
 using SelecaoApp.Infra.DataAccess.Repositories.Specific.LoginInfra;
