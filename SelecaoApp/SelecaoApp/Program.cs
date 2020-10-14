@@ -35,11 +35,7 @@ namespace SelecaoApp
             services.AddSingleton(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddSingleton<ILoginRepository, LoginRepository>();
             services.AddSingleton<IFornecedoresRepository, FornecedoresRepository>();
-            services.AddSingleton<IProdutosRepository, ProdutosRepository>();
-
-
-            services.AddSingleton<ILoginService, LoginServices>();
-            
+            services.AddSingleton<IProdutosRepository, ProdutosRepository>();            
 
             services.AddSingleton<frmLogin>();
         }
