@@ -84,18 +84,35 @@ namespace SelecaoApp
         }
         private void Salvar()
         {
-            model.nome = txtNome.Text.Trim();
-            model.idFornecedor = _fornecedoresRepository.GetIdFornecedorByName(cbFornecedor.Text.Trim());
-            model.quantidade = Convert.ToInt32(numericQuantidade.Text.Trim());
+            if (Valida())
+            {
+                model.nome = txtNome.Text.Trim();
+                model.idFornecedor = _fornecedoresRepository.GetIdFornecedorByName(cbFornecedor.Text.Trim());
+                model.quantidade = Convert.ToInt32(numericQuantidade.Text.Trim());
 
-            if (model.id == 0)
-                _produtosRepository.Add(model);
-            else
-                _produtosRepository.Update(model);
+                if (model.id == 0)
+                    _produtosRepository.Add(model);
+                else
+                    _produtosRepository.Update(model);
 
-            Limpar();
-            CarregaProdutosCadastrados();
+                Limpar();
+                CarregaProdutosCadastrados();
+            }            
         }
+        private bool Valida()
+        {
+            if (string.IsNullOrEmpty(txtNome.Text))
+                return MessageBox.Show("O Nome do Produto não pode ser vazio!") != DialogResult.OK;
+
+            if (string.IsNullOrEmpty(cbFornecedor.Text))
+                return MessageBox.Show("O Fornecedor não pode ser vazio!") != DialogResult.OK;
+
+            if (string.IsNullOrEmpty(numericQuantidade.Text))
+                return MessageBox.Show("A quantidade não pode ser vazia!") != DialogResult.OK;
+
+            return true;
+        }
+
         private void SetModel()
         {
             if (dgvProdutos.CurrentRow.Index != -1)

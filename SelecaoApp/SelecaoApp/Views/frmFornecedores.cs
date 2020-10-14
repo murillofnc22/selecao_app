@@ -79,19 +79,34 @@ namespace SelecaoApp
         }
         private void Salvar()
         {
-            model.nome = txtNome.Text.Trim();
-            model.cnpj = txtCnpj.Text.Trim();
-            model.endereco = txtEndereco.Text.Trim();
-            model.ativo = cbAtivo.Checked;
+            if (Valida())
+            {
+                model.nome = txtNome.Text.Trim();
+                model.cnpj = txtCnpj.Text.Trim();
+                model.endereco = txtEndereco.Text.Trim();
+                model.ativo = cbAtivo.Checked;
 
-            if (model.id == 0)
-                _fornecedoresRepository.Add(model);
-            else
-                _fornecedoresRepository.Update(model);
+                if (model.id == 0)
+                    _fornecedoresRepository.Add(model);
+                else
+                    _fornecedoresRepository.Update(model);
 
-            Limpar();
-            CarregaFornecedoresCadastrados();
+                Limpar();
+                CarregaFornecedoresCadastrados();
+            }            
         }
+
+        private bool Valida()
+        {
+            if (string.IsNullOrEmpty(txtNome.Text))
+                return MessageBox.Show("O Nome do Fornecedor não pode ser vazio!") != DialogResult.OK;
+
+            if (string.IsNullOrEmpty(txtCnpj.Text))
+                return MessageBox.Show("O CNPJ do Fornecedor não pode ser vazio!") != DialogResult.OK;
+
+            return true;
+        }
+
         private void SetModel()
         {
             if (dgvFornecedores.CurrentRow.Index != -1)

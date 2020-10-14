@@ -227,6 +227,7 @@
             // txtEndereco
             // 
             this.txtEndereco.Location = new System.Drawing.Point(110, 107);
+            this.txtEndereco.MaxLength = 255;
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(521, 20);
             this.txtEndereco.TabIndex = 1;
@@ -243,6 +244,7 @@
             // txtCnpj
             // 
             this.txtCnpj.Location = new System.Drawing.Point(110, 63);
+            this.txtCnpj.MaxLength = 18;
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(521, 20);
             this.txtCnpj.TabIndex = 1;
@@ -259,6 +261,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(110, 19);
+            this.txtNome.MaxLength = 255;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(521, 20);
             this.txtNome.TabIndex = 1;
