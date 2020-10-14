@@ -166,7 +166,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Interfaces\IGeneric.cs" />
     <Compile Include="FormsEnums.cs" />
     <Compile Include="Views\frmFornecedores.cs">
       <SubType>Form</SubType>
@@ -193,9 +192,6 @@
       <DependentUpon>frmProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="HandleLogin.cs" />
-    <Compile Include="Infrastructure\Repository\RepositoryFornecedor.cs" />
-    <Compile Include="Infrastructure\Repository\Generic\RepositoryGeneric.cs" />
-    <Compile Include="Infrastructure\Repository\RepositoryProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Views\frmFornecedores.resx">
