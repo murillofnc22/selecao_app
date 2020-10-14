@@ -1,11 +1,13 @@
-﻿using SelecaoApp.Domain.Interfaces.Generic;
+﻿using SelecaoApp.Domain.Models.ProdutosModels;
+using SelecaoApp.Infra.DataAccess.Repositories.Specific.Generic;
+using SelecaoApp.Services.Services.ProdutosServices;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace SelecaoApp.Infra.Repository
+namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.ProdutosInfra
 {
-    public class RepositoryProduto : RepositoryGeneric<Produtos>, IGeneric<Produtos>
+    public class ProdutosRepository : GenericRepository<Domain.Models.ProdutosModels.Produtos>, IProdutosRepository
     {
         public DataTable BuscaProdutosADO(string busca)
         {
@@ -15,7 +17,7 @@ namespace SelecaoApp.Infra.Repository
                 {
                     try
                     {
-                        string sql = @"select p.nome, f.nome Fornecedor, quantidade, p.id from Produtos p inner join Fornecedores f on f.id = p.fornecedor where p.nome like @busca or f.nome like @busca";
+                        string sql = @"select p.nome, f.nome Fornecedor, quantidade, p.id from Produtos p inner join Fornecedores f on f.id = p.idFornecedor where p.nome like @busca or f.nome like @busca";
                         SqlCommand cmd = new SqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@busca", "%" + busca + "%");
                         conn.Open();
@@ -26,18 +28,18 @@ namespace SelecaoApp.Infra.Repository
                     catch (Exception e)
                     {
                         throw e;
-                    }                    
+                    }
                 }
             }
         }
 
-        internal DataTable GetAllProdutosADO()
+        public DataTable GetAllProdutosADO()
         {
             using (DBEntities db = new DBEntities())
             {
                 using (SqlConnection conn = new SqlConnection(db.Database.Connection.ConnectionString))
                 {
-                    string sql = @"select p.nome, f.nome Fornecedor, quantidade, p.id from Produtos p inner join Fornecedores f on f.id = p.fornecedor";
+                    string sql = @"select p.nome, f.nome Fornecedor, quantidade, p.id from Produtos p inner join Fornecedores f on f.id = p.idFornecedor";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         try

@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Fornecedores\FornecedoresModel.cs" />
-    <Compile Include="Models\Fornecedores\IFornecedoresModel.cs" />
-    <Compile Include="Models\Login\ILoginModel.cs" />
-    <Compile Include="Models\Login\LoginModel.cs" />
-    <Compile Include="Models\Produtos\IProdutosModel.cs" />
-    <Compile Include="Models\Produtos\ProdutosModel.cs" />
+    <Compile Include="Models\FornecedoresModels\Fornecedores.cs" />
+    <Compile Include="Models\FornecedoresModels\IFornecedores.cs" />
+    <Compile Include="Models\LoginModels\ILogin.cs" />
+    <Compile Include="Models\LoginModels\Login.cs" />
+    <Compile Include="Models\ProdutosModels\IProdutos.cs" />
+    <Compile Include="Models\ProdutosModels\Produtos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

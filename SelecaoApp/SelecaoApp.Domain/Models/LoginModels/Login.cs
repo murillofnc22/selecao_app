@@ -1,6 +1,6 @@
-﻿namespace SelecaoApp.Domain.Models.Login
+﻿namespace SelecaoApp.Domain.Models.LoginModels
 {
-    public class LoginModel : ILoginModel
+    public class Login : ILogin
     {
         public int id { get; set; }
         public string usuario { get; set; }

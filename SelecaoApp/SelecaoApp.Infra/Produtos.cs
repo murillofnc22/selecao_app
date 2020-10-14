@@ -16,7 +16,7 @@ namespace SelecaoApp.Infra
     {
         public int id { get; set; }
         public string nome { get; set; }
-        public long idFornecedor { get; set; }
+        public int idFornecedor { get; set; }
         public int quantidade { get; set; }
     }
 }

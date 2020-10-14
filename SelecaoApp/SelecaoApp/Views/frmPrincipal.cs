@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SelecaoApp.Services.Services.FornecedoresServices;
+using SelecaoApp.Services.Services.ProdutosServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,15 @@ namespace SelecaoApp
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal(string usuario)
+        private IProdutosRepository produtosRepository;
+        private IFornecedoresRepository fornecedoresRepository;
+
+        public frmPrincipal(string usuario, IProdutosRepository produtosRepository, IFornecedoresRepository fornecedoresRepository)
         {
             InitializeComponent();
+
+            this.produtosRepository = produtosRepository;
+            this.fornecedoresRepository = fornecedoresRepository;
             
             lblUser.Text = usuario;
         }
@@ -24,7 +32,7 @@ namespace SelecaoApp
             Form form = VerificaFormAberto(FormsEnums.frmFornecedores);
             if (form == null)
             {
-                frmFornecedores fornecedores = new frmFornecedores();
+                frmFornecedores fornecedores = new frmFornecedores(fornecedoresRepository);
                 fornecedores.Show(this);
             }
             else
@@ -36,7 +44,7 @@ namespace SelecaoApp
             Form form = VerificaFormAberto(FormsEnums.frmProdutos);
             if (form == null)
             {
-                frmProdutos produtos = new frmProdutos();
+                frmProdutos produtos = new frmProdutos(produtosRepository, fornecedoresRepository);
                 produtos.Show(this);
             }
             else

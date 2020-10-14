@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SelecaoApp.Domain.Models.Produtos
+namespace SelecaoApp.Domain.Models.ProdutosModels
 {
-    public class ProdutosModel : IProdutosModel
+    public class Produtos : IProdutos
     {
         public int id { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "O nome do produto deve ser informado!")]

@@ -1,6 +1,6 @@
-﻿namespace SelecaoApp.Domain.Models.Produtos
+﻿namespace SelecaoApp.Domain.Models.ProdutosModels
 {
-    public interface IProdutosModel
+    public interface IProdutos
     {
         int id { get; set; }
         int idFornecedor { get; set; }

@@ -1,4 +1,7 @@
-﻿using SelecaoApp.Infra.Repository;
+﻿using SelecaoApp.Domain.Models.ProdutosModels;
+using SelecaoApp.Infrastructure.Repository;
+using SelecaoApp.Services.Services.FornecedoresServices;
+using SelecaoApp.Services.Services.ProdutosServices;
 using System;
 using System.Data;
 using System.Linq;
@@ -8,11 +11,14 @@ namespace SelecaoApp
 {
     public partial class frmProdutos : Form
     {
-        Produtos model = new Produtos();
-        private RepositoryProduto db = new RepositoryProduto();
-        public frmProdutos()
+        Produtos model = new Produtos();        
+        private IProdutosRepository _produtosRepository;
+        private IFornecedoresRepository _fornecedoresRepository;
+        public frmProdutos(IProdutosRepository produtosRepository, IFornecedoresRepository fornecedoresRepository)
         {
             InitializeComponent();
+            _produtosRepository = produtosRepository;
+            _fornecedoresRepository = fornecedoresRepository;
         }
         private void frmProdutos_Load(object sender, EventArgs e)
         {
@@ -21,7 +27,7 @@ namespace SelecaoApp
         }
         private void CarregaProdutosCadastrados()
         {
-            dgvProdutos.DataSource = db.GetAllProdutosADO();
+            dgvProdutos.DataSource = _produtosRepository.GetAllProdutosADO();
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -30,8 +36,7 @@ namespace SelecaoApp
         }
         private void ExecutaPesquisa()
         {
-            //esse método fará a pesquisa no banco de dados.
-            dgvProdutos.DataSource = db.BuscaProdutosADO(txtBusca.Text);
+            dgvProdutos.DataSource = _produtosRepository.BuscaProdutosADO(txtBusca.Text);
         }
         private void dgvProdutos_DoubleClick(object sender, EventArgs e)
         {
@@ -53,7 +58,7 @@ namespace SelecaoApp
         private void ExcluiProduto()
         {
             SetModel();
-            db.Delete(model);
+            _produtosRepository.Delete(model);
             CarregaProdutosCadastrados();
             Limpar();            
         }
@@ -79,13 +84,13 @@ namespace SelecaoApp
         private void Salvar()
         {
             model.nome = txtNome.Text.Trim();
-            model.fornecedor = GetIdFornecedor(cbFornecedor.Text.Trim());
+            model.idFornecedor = _fornecedoresRepository.GetIdFornecedorByName(cbFornecedor.Text.Trim());
             model.quantidade = Convert.ToInt32(numericQuantidade.Text.Trim());
 
             if (model.id == 0)
-                db.Add(model);
+                _produtosRepository.Add(model);
             else
-                db.Update(model);
+                _produtosRepository.Update(model);
 
             Limpar();
             CarregaProdutosCadastrados();
@@ -94,39 +99,18 @@ namespace SelecaoApp
         {
             if (dgvProdutos.CurrentRow.Index != -1)
             {
-                model.id = Convert.ToInt64(dgvProdutos.CurrentRow.Cells["id"].Value);
+                model.id = Convert.ToInt32(dgvProdutos.CurrentRow.Cells["id"].Value);
 
-                model = db.GetEntityById(model.id);
+                model = _produtosRepository.GetById(model.id);
 
                 txtNome.Text = model.nome;
-                cbFornecedor.Text = GetNomeFornecedor(model.fornecedor);
+                cbFornecedor.Text = _fornecedoresRepository.GetNomeFornecedorById(model.idFornecedor);
                 numericQuantidade.Text = model.quantidade.ToString();
             }
         }
-        private string GetNomeFornecedor(long id)
-        {
-            string nome = "";
-            using (DBEntities db = new DBEntities())
-            {
-                nome = db.Fornecedores.Where(x => x.id == id).FirstOrDefault().nome;
-            }
-            return nome;
-        }
-        private long GetIdFornecedor(string nome)
-        {
-            long id = 0;
-            using (DBEntities db = new DBEntities())
-            {
-                id = db.Fornecedores.Where(x => x.nome == nome).FirstOrDefault().id;
-            }
-            return id;
-        }
         private void SetFornecedores()
         {
-            using (DBEntities db = new DBEntities())
-            {
-                cbFornecedor.DataSource = db.Fornecedores.ToList().Select(s => s.nome).ToList();
-            }            
+            cbFornecedor.DataSource = _fornecedoresRepository.GetAll().Select(s => s.nome).ToList();
         }
     }
 }

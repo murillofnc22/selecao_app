@@ -1,6 +1,6 @@
-﻿namespace SelecaoApp.Domain.Models.Login
+﻿namespace SelecaoApp.Domain.Models.LoginModels
 {
-    public interface ILoginModel
+    public interface ILogin
     {
         int id { get; set; }
         string usrpass { get; set; }

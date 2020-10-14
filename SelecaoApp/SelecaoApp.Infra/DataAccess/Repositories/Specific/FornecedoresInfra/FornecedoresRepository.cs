@@ -1,14 +1,18 @@
-﻿using SelecaoApp.Domain.Models.Produtos;
+﻿using SelecaoApp.Domain.Models.FornecedoresModels;
+using SelecaoApp.Infra.Configuration;
 using SelecaoApp.Infra.DataAccess.Repositories.Specific.Generic;
+using SelecaoApp.Services.Services.FornecedoresServices;
 using System;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Linq;
 
-namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.Produtos
+namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.FornecedoresInfra
 {
-    public class ProdutosRepository : GenericRepository<ProdutosModel>
+    public class FornecedoresRepository : GenericRepository<Domain.Models.FornecedoresModels.Fornecedores>, IFornecedoresRepository
     {
-        public DataTable BuscaProdutosADO(string busca)
+        public DataTable BuscaFornecedoresADO(string busca)
         {
             using (DBEntities db = new DBEntities())
             {
@@ -16,7 +20,7 @@ namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.Produtos
                 {
                     try
                     {
-                        string sql = @"select p.nome, f.nome Fornecedor, quantidade, p.id from Produtos p inner join Fornecedores f on f.id = p.fornecedor where p.nome like @busca or f.nome like @busca";
+                        string sql = @"select id, nome, cnpj, endereco, ativo from Fornecedores where nome like @busca or cnpj like @busca or endereco like @busca";
                         SqlCommand cmd = new SqlCommand(sql, conn);
                         cmd.Parameters.AddWithValue("@busca", "%" + busca + "%");
                         conn.Open();
@@ -32,13 +36,13 @@ namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.Produtos
             }
         }
 
-        internal DataTable GetAllProdutosADO()
+        public DataTable GetAllFornecedoresADO()
         {
             using (DBEntities db = new DBEntities())
             {
                 using (SqlConnection conn = new SqlConnection(db.Database.Connection.ConnectionString))
                 {
-                    string sql = @"select p.nome, f.nome Fornecedor, quantidade, p.id from Produtos p inner join Fornecedores f on f.id = p.fornecedor";
+                    string sql = @"select id, nome, cnpj, endereco, ativo from Fornecedores";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         try
@@ -53,6 +57,23 @@ namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.Produtos
                 }
             }
             return null;
+        }
+
+        public int GetIdFornecedorByName(string nome)
+        {
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                return data.Set<Domain.Models.FornecedoresModels.Fornecedores>().AsNoTracking().ToList().Where(x => x.nome == nome).FirstOrDefault().id;
+            }
+                
+        }
+
+        public string GetNomeFornecedorById(int id)
+        {
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                return data.Set<Domain.Models.FornecedoresModels.Fornecedores>().AsNoTracking().ToList().Where(x => x.id == id).FirstOrDefault().nome;
+            }
         }
     }
 }

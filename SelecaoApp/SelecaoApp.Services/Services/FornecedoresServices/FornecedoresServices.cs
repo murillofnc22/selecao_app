@@ -1,7 +1,8 @@
-﻿using SelecaoApp.Domain.Models.Fornecedores;
+﻿using SelecaoApp.Domain.Models.FornecedoresModels;
 using SelecaoApp.Services.CommomServices;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace SelecaoApp.Services.Services.FornecedoresServices
 {
@@ -16,32 +17,52 @@ namespace SelecaoApp.Services.Services.FornecedoresServices
             _modelDataAnnotationCheck = modelDataAnnotationCheck;
         }
 
-        public void Add(FornecedoresModel objeto)
+        public void Add(Fornecedores objeto)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(FornecedoresModel objeto)
+        public DataTable BuscaFornecedoresADO(string busca)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<FornecedoresModel> GetAll()
+        public void Delete(Fornecedores objeto)
         {
             throw new NotImplementedException();
         }
 
-        public FornecedoresModel GetById(int id)
+        public IEnumerable<Fornecedores> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(FornecedoresModel objeto)
+        public DataTable GetAllFornecedoresADO()
         {
             throw new NotImplementedException();
         }
 
-        public void ValidateModel(FornecedoresModel model)
+        public Fornecedores GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetIdFornecedorByName(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetNomeFornecedorById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Fornecedores objeto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ValidateModel(Fornecedores model)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿using SelecaoApp.Infra.Repository.Generic;
+﻿using SelecaoApp.Domain.Models.FornecedoresModels;
+using SelecaoApp.Infrastructure.Repository.Generic;
+using SelecaoApp.Services.Services.FornecedoresServices;
 using System;
 using System.Windows.Forms;
 
@@ -7,18 +9,21 @@ namespace SelecaoApp
     public partial class frmFornecedores : Form
     {
         private Fornecedores model = new Fornecedores();
-        private RepositoryFornecedor db = new RepositoryFornecedor();
-        public frmFornecedores()
+        private IFornecedoresRepository _fornecedoresRepository;        
+        
+        public frmFornecedores(IFornecedoresRepository fornecedoresRepository)
         {
             InitializeComponent();
+            _fornecedoresRepository = fornecedoresRepository;
         }
+
         private void frmFornecedores_Load(object sender, EventArgs e)
         {
             CarregaFornecedoresCadastrados();
         }
         private void CarregaFornecedoresCadastrados()
         {
-            dgvFornecedores.DataSource = db.GetAllFornecedoresADO();
+            dgvFornecedores.DataSource = _fornecedoresRepository.GetAllFornecedoresADO();
         }
         private void Pesquisa_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -27,7 +32,7 @@ namespace SelecaoApp
         }
         private void ExecutaPesquisa()
         {
-            dgvFornecedores.DataSource = db.BuscaFornecedoresADO(txtPesquisa.Text);
+            dgvFornecedores.DataSource = _fornecedoresRepository.BuscaFornecedoresADO(txtPesquisa.Text);
         }
         private void dgvFornecedores_DoubleClick(object sender, EventArgs e)
         {
@@ -48,7 +53,7 @@ namespace SelecaoApp
         private void ExcluiFornecedor()
         {
             SetModel();
-            db.Delete(model);
+            _fornecedoresRepository.Delete(model);
             CarregaFornecedoresCadastrados();
             Limpar();
         }
@@ -79,9 +84,9 @@ namespace SelecaoApp
             model.ativo = cbAtivo.Checked;
 
             if (model.id == 0)
-                db.Add(model);
+                _fornecedoresRepository.Add(model);
             else
-                db.Update(model);
+                _fornecedoresRepository.Update(model);
 
             Limpar();
             CarregaFornecedoresCadastrados();
@@ -90,8 +95,8 @@ namespace SelecaoApp
         {
             if (dgvFornecedores.CurrentRow.Index != -1)
             {
-                model.id = Convert.ToInt64(dgvFornecedores.CurrentRow.Cells["id"].Value);
-                model = db.GetEntityById(model.id);
+                model.id = Convert.ToInt32(dgvFornecedores.CurrentRow.Cells["id"].Value);
+                model = _fornecedoresRepository.GetById(model.id);
 
                 txtNome.Text = model.nome;
                 txtCnpj.Text = model.cnpj;

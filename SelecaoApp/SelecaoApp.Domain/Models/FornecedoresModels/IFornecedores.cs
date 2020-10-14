@@ -1,6 +1,6 @@
-﻿namespace SelecaoApp.Domain.Models.Fornecedores
+﻿namespace SelecaoApp.Domain.Models.FornecedoresModels
 {
-    public interface IFornecedoresModel
+    public interface IFornecedores
     {
         bool ativo { get; set; }
         string cnpj { get; set; }
