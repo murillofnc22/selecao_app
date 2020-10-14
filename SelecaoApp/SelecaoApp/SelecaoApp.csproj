@@ -127,28 +127,28 @@
   <ItemGroup>
     <Compile Include="Domain\Interfaces\IGeneric.cs" />
     <Compile Include="FormsEnums.cs" />
-    <Compile Include="Forms\frmFornecedores.cs">
+    <Compile Include="Views\frmFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmFornecedores.Designer.cs">
+    <Compile Include="Views\frmFornecedores.Designer.cs">
       <DependentUpon>frmFornecedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogin.cs">
+    <Compile Include="Views\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
+    <Compile Include="Views\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPrincipal.cs">
+    <Compile Include="Views\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPrincipal.Designer.cs">
+    <Compile Include="Views\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmProdutos.cs">
+    <Compile Include="Views\frmProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmProdutos.Designer.cs">
+    <Compile Include="Views\frmProdutos.Designer.cs">
       <DependentUpon>frmProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="Fornecedores.cs">
@@ -182,16 +182,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SelecaoDB.edmx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\frmFornecedores.resx">
+    <EmbeddedResource Include="Views\frmFornecedores.resx">
       <DependentUpon>frmFornecedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
+    <EmbeddedResource Include="Views\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPrincipal.resx">
+    <EmbeddedResource Include="Views\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmProdutos.resx">
+    <EmbeddedResource Include="Views\frmProdutos.resx">
       <DependentUpon>frmProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
