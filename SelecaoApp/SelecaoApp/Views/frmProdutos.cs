@@ -101,6 +101,9 @@ namespace SelecaoApp
         }
         private bool Valida()
         {
+            if(_fornecedoresRepository.GetIdFornecedorByName(cbFornecedor.Text.Trim()) == 0)
+                return MessageBox.Show("O Fornecedor informado não existe!") != DialogResult.OK;
+
             if (string.IsNullOrEmpty(txtNome.Text))
                 return MessageBox.Show("O Nome do Produto não pode ser vazio!") != DialogResult.OK;
 

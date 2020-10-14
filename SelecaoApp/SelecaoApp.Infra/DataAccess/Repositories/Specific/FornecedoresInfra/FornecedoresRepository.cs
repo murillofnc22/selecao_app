@@ -1,5 +1,4 @@
-﻿using SelecaoApp.Domain.Models.FornecedoresModels;
-using SelecaoApp.Infra.Configuration;
+﻿using SelecaoApp.Infra.Configuration;
 using SelecaoApp.Infra.DataAccess.Repositories.Specific.Generic;
 using SelecaoApp.Services.Services.FornecedoresServices;
 using System;
@@ -63,7 +62,12 @@ namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.FornecedoresInfra
         {
             using (var data = new ContextBase(_OptionsBuilder))
             {
-                return data.Set<Domain.Models.FornecedoresModels.Fornecedores>().AsNoTracking().ToList().Where(x => x.nome == nome).FirstOrDefault().id;
+                var fornecedor = data.Set<Domain.Models.FornecedoresModels.Fornecedores>().AsNoTracking().ToList().Where(x => x.nome == nome).FirstOrDefault();
+                if (fornecedor != null)
+                    return fornecedor.id;
+                else
+                    return 0;
+                
             }
                 
         }
@@ -72,7 +76,7 @@ namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.FornecedoresInfra
         {
             using (var data = new ContextBase(_OptionsBuilder))
             {
-                return data.Set<Domain.Models.FornecedoresModels.Fornecedores>().AsNoTracking().ToList().Where(x => x.id == id).FirstOrDefault().nome;
+                return data.Set<Domain.Models.FornecedoresModels.Fornecedores>().AsNoTracking()?.ToList().Where(x => x.id == id).FirstOrDefault().nome;
             }
         }
     }
