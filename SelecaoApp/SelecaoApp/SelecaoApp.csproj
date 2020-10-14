@@ -191,7 +191,6 @@
     <Compile Include="Views\frmProdutos.Designer.cs">
       <DependentUpon>frmProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandleLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Views\frmFornecedores.resx">

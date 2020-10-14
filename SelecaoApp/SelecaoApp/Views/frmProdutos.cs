@@ -131,7 +131,7 @@ namespace SelecaoApp
         }
         private void SetFornecedores()
         {
-            cbFornecedor.DataSource = _fornecedoresRepository.GetAll().Select(s => s.nome).ToList();
+            cbFornecedor.DataSource = _fornecedoresRepository.GetAll().Where(w => w.ativo == true).Select(s => s.nome).ToList();
         }
     }
 }
