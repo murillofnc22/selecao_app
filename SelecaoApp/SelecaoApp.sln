@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelecaoApp.Domain", "Seleca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelecaoApp.Services", "SelecaoApp.Services\SelecaoApp.Services.csproj", "{4FA5AA4C-4193-4030-83C4-C0A092C8540C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelecaoApp.Infra", "SelecaoApp.Infra\SelecaoApp.Infra.csproj", "{8B3707AF-7D64-4195-8FE4-1113C2045528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4FA5AA4C-4193-4030-83C4-C0A092C8540C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FA5AA4C-4193-4030-83C4-C0A092C8540C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FA5AA4C-4193-4030-83C4-C0A092C8540C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B3707AF-7D64-4195-8FE4-1113C2045528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3707AF-7D64-4195-8FE4-1113C2045528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3707AF-7D64-4195-8FE4-1113C2045528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3707AF-7D64-4195-8FE4-1113C2045528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
