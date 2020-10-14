@@ -29,7 +29,7 @@ namespace SelecaoApp.Infra.DataAccess.Repositories.Specific.Generic
         {
             using (DBEntities data = new DBEntities())
             {
-                data.Entry<T>(objeto).State = System.Data.Entity.EntityState.Modified;
+                data.Entry<T>(objeto).State = EntityState.Modified;
                 data.SaveChanges();
             }
         }
